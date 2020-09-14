@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:us="http://tharaka.com/corebank/model/">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <us:getAccountBalanceRequest>
+            <us:accountNo>123123123</us:accountNo>
+        </us:getAccountBalanceRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
+
+

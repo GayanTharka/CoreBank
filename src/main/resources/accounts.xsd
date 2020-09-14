@@ -1,0 +1,77 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://tharaka.com/corebank/model"
+           targetNamespace="http://tharaka.com/corebank/model"
+           elementFormDefault="qualified">
+
+    <xs:element name="getAccountBalanceRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="accountNo" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAccountBalanceResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="balance" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getTotalAccountBalanceRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="userId" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getTotalAccountBalanceResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="balance" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="fundTransferToOwnAccountRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="fromAccountNo" type="xs:int"/>
+                <xs:element name="toAccountNo" type="xs:int"/>
+                <xs:element name="amount" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="fundTransferToOwnAccountResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="account" type="tns:account"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+        <xs:element name="fundTransferToOtherAccountRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="fromAccountNo" type="xs:int"/>
+                <xs:element name="toAccountNo" type="xs:int"/>
+                <xs:element name="bankCode" type="xs:int"/>
+                <xs:element name="amount" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="fundTransferToOtherAccountResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="account" type="tns:account"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="account">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:int"/>
+            <xs:element name="accountNo" type="xs:int"/>
+            <xs:element name="balance" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
